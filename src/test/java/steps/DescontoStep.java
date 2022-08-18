@@ -5,12 +5,10 @@ import cucumber.api.java.pt.Quando;
 import cucumber.api.java.pt.Então;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import runners.RunCucumberTest;
 
-public class DescontoStep {
 
-    WebDriver driver = new ChromeDriver();
+public class DescontoStep extends RunCucumberTest {
 
     @Dado("que estou no site da qazando")
     public void acessar_site_qazando() {
@@ -37,7 +35,5 @@ public class DescontoStep {
     public void eu_vejo_o_código_de_desconto() {
         String texto_cupom = driver.findElement(By.cssSelector("#cupom > h2 > span")).getText()
         Assert.assertEquals("QAZANDO15OFF", texto_cupom)
-
-        driver.quit();
     }
 }
