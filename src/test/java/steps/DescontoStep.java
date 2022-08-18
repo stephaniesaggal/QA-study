@@ -15,6 +15,7 @@ public class DescontoStep {
     @Dado("que estou no site da qazando")
     public void acessar_site_qazando() {
         driver.get("https://www.qazando.com.br/curso.html");
+        Assert.assertEquals("não acessou a aplicação", true, driver.findElement(By.id("btn-ver-cursos")).isDisplayed())
     }
 
     @Quando("eu preencho meu e-mail")
@@ -35,7 +36,7 @@ public class DescontoStep {
     @Então("eu vejo o código de desconto")
     public void eu_vejo_o_código_de_desconto() {
         String texto_cupom = driver.findElement(By.cssSelector("#cupom > h2 > span")).getText()
-        System.out.println(texto_cupom);
+        Assert.assertEquals("QAZANDO15OFF", texto_cupom)
 
         driver.quit();
     }
