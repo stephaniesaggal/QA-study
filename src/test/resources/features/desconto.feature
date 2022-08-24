@@ -5,6 +5,7 @@
         quero receber um cupom de desconto
         para comprar um curso com valor reduzido
 
+        @gerar-cupom
         Cenário: Vizualizar código de desconto
             Dado que estou no site da qazando
             Quando eu preencho meu e-mail
