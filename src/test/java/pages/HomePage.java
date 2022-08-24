@@ -4,8 +4,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.JavascriptExecutor;
+import support.Utils;
 
-public class HomePage {
+public class HomePage extends Utils {
 
     WebDriver driver;
 
@@ -15,7 +16,8 @@ public class HomePage {
 
     public void acessarAplicacao() {
         driver.get("https://www.qazando.com.br/curso.html");
-        Assert.assertEquals("não acessou a aplicação", true, driver.findElement(By.id("btn-ver-cursos")).isDisplayed())
+        esperarElementoEstarPresente(By.id("btn-ver-cursos"), 10);
+        Assert.assertEquals("não acessou a aplicação", true, driver.findElement(By.id("btn-ver-cursos")).isDisplayed());
     }
 
     public void scrollDown() throws InterruptedException {
@@ -34,7 +36,7 @@ public class HomePage {
     }
 
     public void verificarCupomDesconto() {
-        String texto_cupom = driver.findElement(By.cssSelector("#cupom > h2 > span")).getText()
-        Assert.assertEquals("QAZANDO15OFF", texto_cupom)
+        String texto_cupom = driver.findElement(By.cssSelector("#cupom > h2 > span")).getText();
+        Assert.assertEquals("QAZANDO15OFF", texto_cupom);
     }
 }
